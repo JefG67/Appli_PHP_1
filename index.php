@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -42,7 +44,10 @@
                     <a href="http://localhost/Guilpain%20Jean-Fran%C3%A7ois/Appli_PHP_1/recap.php" class="btn btn-primary position-relative">
                         Panier
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            99+
+                            <?php
+                            include "function.php";
+                            echo panier();
+                            ?>
                             <span class="visually-hidden">unread messages</span>
                         </span>
                     </a>
@@ -55,7 +60,7 @@
 </html>
 
 <?php
-session_start();
+
 // je verifie si la variable existe et est non nul 
 if (isset($_SESSION['message'])) {
     // envoyer le message puis le supprime ensuite 
