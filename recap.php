@@ -21,7 +21,7 @@ session_start();
     if (!isset($_SESSION['products']) || empty($_SESSION['products'])) {
         echo "<p> Aucun produit en session.....</p>";
     } else {
-        echo "<table class='table'>",
+        echo "<table class='table table-striped table-hover'>",
         "<thead>",
         "<tr>",
         "<th scope='col'>#</th>",
