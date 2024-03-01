@@ -15,3 +15,4 @@ function panier()
         return $totalProduit;
     }
 
+    
