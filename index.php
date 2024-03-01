@@ -41,7 +41,7 @@
                 <input type="submit" name="submit" value="Ajouter le produit" class="btn btn-primary mx-auto text-center">
                 <div class="position-absolute top-0"style="margin-top: 10px;">
                     <input type="submit" name="submit" value="Ajouter le produit" class="btn btn-primary mx-auto text-center">
-                    <a href="http://localhost/Guilpain%20Jean-Fran%C3%A7ois/Appli_PHP_1/recap.php" class="btn btn-primary position-relative">
+                    <a href="http://localhost/JeanFran%C3%A7ois_Guilpain/appli_php_1/recap.php" class="btn btn-primary position-relative">
                         Panier
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                             <?php
