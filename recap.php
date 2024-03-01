@@ -11,17 +11,20 @@ session_start();
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <title>Récapitulatif des produits</title>
     </head>
     
     <body>
-    <div class="d-flex flex-column align-item-center m-5"></div>
-    <h1 class="text primary m-3">Votre panier de produit</h1>
+    <div class="d-flex flex-column align-items-center  m-5">
+    <h1 class="text-primary m-3 text-center ">Votre panier de produit</h1>
+    
     <?php
     if (!isset($_SESSION['products']) || empty($_SESSION['products'])) {
         echo "<p> Aucun produit en session.....</p>";
     } else {
-        echo "<table class='table table-striped'>",
+        echo "<table class='table table-striped w-50 text-center align-middle table-bordered'>" ,
         "<thead>",
         "<tr>",
         "<th scope='col'>#</th>",
@@ -51,6 +54,8 @@ session_start();
         "</table>";
     }
     ?>
+    </div>
+    </div>
 </body>
 
 </html>
@@ -59,5 +64,8 @@ session_start();
 
 <!-- var_dump($_SESSION); -->
 
-<div class="d-flex flex-column align-item-center m-5"></div>
-<h1 class="text primary m-3"></h1>
+<!-- 
+"<td class="table-secondary"> . $index .</td>",  
+"<td class="table-secondary"> . number_format($product['price'], 2, ",", "&nbsp;") . "&nbsp;€ </td>",  
+
+"<td>" . $index . "</td>", -->
