@@ -27,11 +27,11 @@ session_start();
         echo "<table class='table table-striped w-50 text-center align-middle table-bordered'>" ,
         "<thead>",
         "<tr>",
-        "<th scope='col'>#</th>",
-        "<th scope='col'>Nom</th>",
-        "<th scope='col'>Prix</th>",
-        "<th scope='col'>Quantité</th>",
-        "<th scope='col'>Total</th>",
+        "<th class='p-3 mb-2 bg-primary text-white' >#</th>",
+        "<th class='p-3 mb-2 bg-primary text-white'>Nom</th>",
+        "<th class='p-3 mb-2 bg-primary text-white'>Prix</th>",
+        "<th class='p-3 mb-2 bg-primary text-white'>Quantité</th>",
+        "<th class='p-3 mb-2 bg-primary text-white'>Total</th>",
         "</tr>",
         "</thead>",
         "</tbody>";
@@ -47,8 +47,8 @@ session_start();
             $totalGeneral = $totalGeneral + $product['total'];
         }
         echo "<tr>",
-        "<td colspan=4>Total général : </td>",
-        "<td><strong>" . number_format($totalGeneral, 2, ",", "&nbsp;") . "&nbsp;€</strong></td>",
+        "<td class='p-3 mb-2 bg-primary text-white'colspan=4>Total général : </td>",
+        "<td class='p-3 mb-2 bg-success text-white'><strong>" . number_format($totalGeneral, 2, ",", "&nbsp;") . "&nbsp;€</strong></td>",
         "</tr>",
         "</tbody>",
         "</table>";
@@ -64,8 +64,3 @@ session_start();
 
 <!-- var_dump($_SESSION); -->
 
-<!-- 
-"<td class="table-secondary"> . $index .</td>",  
-"<td class="table-secondary"> . number_format($product['price'], 2, ",", "&nbsp;") . "&nbsp;€ </td>",  
-
-"<td>" . $index . "</td>", -->
