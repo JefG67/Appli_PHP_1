@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    
     <div class="d-flex flex-column align-items-center m-5">
 
         </p>
@@ -27,7 +28,7 @@
             <p>
                 <label>
                     Prix du produit en € :
-                    <input type="number" step="any" name="price" class="form-control mx-3">
+                    <input type="text" step="any" name="price" class="form-control mx-3">
                 </label>
             </p>
             <p>
@@ -66,9 +67,12 @@ if (isset($_SESSION['message'])) {
     // envoyer le message puis le supprime ensuite 
     echo $_SESSION['message'];
     unset($_SESSION['message']);
+}   elseif (isset($_SESSION['Erreur'])){ //sinon je renvoie le message d'erreur
+    echo $_SESSION['Erreur'];
+    unset($_SESSION['Erreur']);
 }
+           
+           
 ?>
-
-
 
 
