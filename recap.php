@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -34,6 +31,10 @@
 
                     </span>
                 </a>
+                <form method="post" action="http://localhost/JeanFran%C3%A7ois_Guilpain/appli_php_1/index.php?action=del"> <!-- bouton de l'action del... ne marche pas  -->
+                    <button type="submit" class="nav-link">Supprimer panier</button>
+                </form>
+
 
             </nav>
         </div>
