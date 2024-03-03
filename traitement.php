@@ -50,6 +50,7 @@
        </div>";
 
         }
+        header("Location:recap.php");
 
 
 
