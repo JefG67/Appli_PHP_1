@@ -75,3 +75,11 @@
 
 
         <!-- var_dump($_SESSION); -->
+
+
+        <!-- chercher un bouton supprimer sur bootstrap
+        <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+        <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
+
+
+        
