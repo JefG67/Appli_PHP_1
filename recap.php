@@ -18,9 +18,9 @@
             <!-- NAVBAR -->
             <nav class="nav nav-pills d-flex justify-content-center ju mt-3">
 
-                <a class="nav-link" href="http://localhost/JeanFran%c3%a7ois_Guilpain/appli_php_1/index.php">Ajouter produit</a>
+                <a class="nav-link" href="index.php">Ajouter produit</a>
 
-                <a class="nav-link position-relative " href="http://localhost/JeanFran%C3%A7ois_Guilpain/appli_php_1/recap.php">
+                <a class="nav-link position-relative " href="recap.php">
                     Panier
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
 
@@ -31,9 +31,9 @@
 
                     </span>
                 </a>
-                <form method="post" action="http://localhost/JeanFran%C3%A7ois_Guilpain/appli_php_1/index.php?action=del"> <!-- bouton de l'action del... ne marche pas  -->
+                <a href="traitement.php?action=clear"> <!-- bouton de l'action clear...  -->
                     <button type="submit" class="nav-link">Supprimer panier</button>
-                </form>
+                </a>
 
 
             </nav>
@@ -49,8 +49,12 @@
             "<th class='p-3 mb-2 bg-primary text-white'>#</th>",
             "<th class='p-3 mb-2 bg-primary text-white'>Nom</th>",
             "<th class='p-3 mb-2 bg-primary text-white'>Prix</th>",
+            "<th class='p-3 mb-2 bg-primary text-white'>-</th>",
             "<th class='p-3 mb-2 bg-primary text-white'>Quantité</th>",
+            "<th class='p-3 mb-2 bg-primary text-white'>+</th>",
             "<th class='p-3 mb-2 bg-primary text-white'>Total</th>",
+            "<th class='p-3 mb-2 bg-primary text-white'>Sup</th>",
+            
             "</tr>",
             "</thead>",
             "</tbody>";
@@ -60,27 +64,56 @@
                 "<td>" . $index . "</td>",
                 "<td>" . $product['name'] . "</td>",
                 "<td>" . number_format($product['price'], 2, ",", "&nbsp;") . "&nbsp;€</td>",
+                "<td><a href='traitement.php?action=down-qtt&id=". $index."' class='btn' role='button' data-bs-toggle='button'>-</a></td>
+                ",//bouton -
                 "<td>" . $product['qtt'] . "</td>",
+                "<td><a href='traitement.php?action=up-qtt&id=". $index."' class='btn' role='button' data-bs-toggle='button'>+</a></td>
+                ", //bouton+ 
                 "<td>" . number_format($product['total'], 2, ",", "&nbsp;") . "&nbsp;€</td>",
+                "<td><a href='traitement.php?action=del&id=". $index."'><button type='button' class='btn-close' aria-label='Close'></button></a></td>";
                 "</tr>";
                 $totalGeneral = $totalGeneral + $product['total'];
             }
             echo "<tr>",
-            "<td class='p-3 mb-2 bg-primary text-white'colspan=4><strong>Total général : </strong></td>",
+            "<td class='p-3 mb-2 bg-primary text-white'colspan=6><strong>Total général : </strong></td>",
+            // "<td class='p-3 mb-2 bg-primary text-white'></td>",
+            // "<td class='p-3 mb-2 bg-primary text-white'></td>",
             "<td class='p-3 mb-2 bg-success text-white'><strong>" . number_format($totalGeneral, 2, ",", "&nbsp;") . "&nbsp;€</strong></td>",
+            "<td class='p-3 mb-2 bg-primary text-white'></td>",
+            
+            
             "</tr>",
             "</tbody>",
             "</table>";
         }
         ?>
+               
 
 
-        <!-- var_dump($_SESSION); -->
+        <!-- afficher le message pour supprimer le panier  -->
+        <?php
+        if (isset($_SESSION['message'])) {
+            // envoyer le message puis le supprime ensuite 
+            echo $_SESSION['message'];
+            unset($_SESSION['message']);
+        }
+        //affiche le message pour supprimer un article du panier
+        if (isset($_SESSION['Erreur'])) {
+            // envoyer le message puis le supprime ensuite 
+            echo $_SESSION['Erreur'];
+            unset($_SESSION['Erreur']);
+        }
+        //affiche le message pour supprimer un article quand la quantité passe a 0
+        if (isset($_SESSION['Erreur2'])) {
+            // envoyer le message puis le supprime ensuite 
+            echo $_SESSION['Erreur2'];
+            unset($_SESSION['Erreur2']);
+        }
 
 
-        <!-- chercher un bouton supprimer sur bootstrap
-        <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-        <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
 
+        ?>
 
         
+
+
