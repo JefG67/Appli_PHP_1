@@ -68,9 +68,9 @@
                 ",//bouton -
                 "<td>" . $product['qtt'] . "</td>",
                 "<td><a href='traitement.php?action=up-qtt&id=". $index."' class='btn' role='button' data-bs-toggle='button'>+</a></td>
-                ", //bouton+ 
+                ", //bouton+ explication : id=". $index. represente l'identifiant du produit a supprimer.$index est la variable PHP qui contient cet identifiant
                 "<td>" . number_format($product['total'], 2, ",", "&nbsp;") . "&nbsp;€</td>",
-                "<td><a href='traitement.php?action=del&id=". $index."'><button type='button' class='btn-close' aria-label='Close'></button></a></td>";
+                "<td><a href='traitement.php?action=del&id=". $index."'><button type='button' class='btn-close' aria-label='Close'></button></a></td>";// bouton del produit
                 "</tr>";
                 $totalGeneral = $totalGeneral + $product['total'];
             }

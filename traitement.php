@@ -2,20 +2,22 @@
     session_start();
     
     $index = isset($_GET['id']) ? $_GET['id'] : null; // on récupére la valeur d'un parametre id dans URL si elle existe sinon on lui attribue la valeur "null", (?)= operateur ternaire pour cree une condition
-    $quantité = isset($_GET['qtt']) ? $_GET['qtt'] : null;
+    
+    // je verifie si une action est spécifiée dans l'url
     if(isset($_GET['action'])) {
         switch($_GET['action']){
 
-
+            //action pour ajouter un produit
             case "add":
 
                     if (isset($_POST['submit'])) {
-
+                        //je crée des filtres pour les données du formulaire
                         $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_SPECIAL_CHARS);
                         $price = filter_input(INPUT_POST, "price", FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
                         $qtt = filter_input(INPUT_POST, "qtt", FILTER_VALIDATE_INT);
 
                         if ($name && $price && $qtt) {
+                            //création d'un tableau représentant le produit et le calcul total
                             $product = [
                                 "name" => $name,
                                 "price" => $price,
@@ -28,14 +30,14 @@
                             $_SESSION['message'] = "<div class='alert alert-success' role='alert'>
                                 Votre produit à bien été enrengistré !
                             </div>";
-                        } elseif
+                        } elseif //je crée une condition si les données rentrer dans le formaulaire son incorect pour renvoyer un message d'erreur
                             (isset($_POST['submit'])){ //je verifie l'existence de la clé "submit" dans le tableau $_POST, la clé correspond à l'attribut "name" du bouton input type="submit" name="submit" du formulaire.La condition sera alors vraie seulement si la requete POST transmet bien une clé "submit" au serveur
                                 
                                 $_SESSION['Erreur'] = "<div class='alert alert-danger' role='alert'>
                                 Votre produit n'a pas été enregistré ! 
                                 </div>";   
 
-                            }
+                            }// je crée ma redirection vers la page index.php
                             header("Location:index.php");
                             die;
                     
@@ -58,7 +60,7 @@
                         die;
                     }
                     break;
-                    
+            //action pour supprimer un produit du panier         
             case "del":
                     if (isset($_SESSION['products'][$index])){
 
@@ -67,7 +69,7 @@
                         $_SESSION['Erreur']="<div class='alert alert-success' role='alert'>
                         Le produit ".$nomProduitDelete. " a bien été supprimé.
                         </div>";
-                        unset($_SESSION['products'][$index]);
+                        unset($_SESSION['products'][$index]); //suppresion du produit spécifier de la session
 
                         header("Location:recap.php");
                         die;
@@ -85,7 +87,7 @@
             case "down-qtt":
                 $_SESSION['products'][$index]['qtt'] -=1;
                     $_SESSION['products'][$index]['total'] = $_SESSION['products'][$index]['qtt']*$_SESSION['products'][$index]['price'];
-                //rajout de la condition si la quantité passe a 0 le produit est supprimé 
+                //rajout de la condition si la quantité passe a 0 le produit est supprimé avec un message
                 if ($_SESSION['products'][$index]['qtt']<= 0 ){
                     $_SESSION['Erreur2']="<div class='alert alert-success' role='alert'>
                     Le produit a bien été supprimé. 
@@ -101,6 +103,7 @@
 
 
         }
+        //renvoie un message d'erreur si action est lancé
     $_SESSION['Erreur'] = "<div class='alert alert-danger' role='alert'>
     Cette page n'existe pas 
     </div>";   
