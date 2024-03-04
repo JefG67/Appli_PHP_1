@@ -67,9 +67,6 @@ if (isset($_SESSION['message'])) {
     // envoyer le message puis le supprime ensuite 
     echo $_SESSION['message'];
     unset($_SESSION['message']);
-}   elseif (isset($_SESSION['Erreur'])){ //sinon je renvoie le message d'erreur
-    echo $_SESSION['Erreur'];
-    unset($_SESSION['Erreur']);
 }
            
            

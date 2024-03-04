@@ -33,7 +33,7 @@
                         } elseif //je crée une condition si les données rentrer dans le formaulaire son incorect pour renvoyer un message d'erreur
                             (isset($_POST['submit'])){ //je verifie l'existence de la clé "submit" dans le tableau $_POST, la clé correspond à l'attribut "name" du bouton input type="submit" name="submit" du formulaire.La condition sera alors vraie seulement si la requete POST transmet bien une clé "submit" au serveur
                                 
-                                $_SESSION['Erreur'] = "<div class='alert alert-danger' role='alert'>
+                                $_SESSION['message'] = "<div class='alert alert-danger' role='alert'>
                                 Votre produit n'a pas été enregistré ! 
                                 </div>";   
 
@@ -66,7 +66,7 @@
 
                         $nomProduitDelete = $_SESSION['products'][$index]['name']; // je cree une variable pour recuperer le nom du produit 
 
-                        $_SESSION['Erreur']="<div class='alert alert-success' role='alert'>
+                        $_SESSION['message']="<div class='alert alert-success' role='alert'>
                         Le produit ".$nomProduitDelete. " a bien été supprimé.
                         </div>";
                         unset($_SESSION['products'][$index]); //suppresion du produit spécifier de la session
@@ -89,7 +89,7 @@
                     $_SESSION['products'][$index]['total'] = $_SESSION['products'][$index]['qtt']*$_SESSION['products'][$index]['price'];
                 //rajout de la condition si la quantité passe a 0 le produit est supprimé avec un message
                 if ($_SESSION['products'][$index]['qtt']<= 0 ){
-                    $_SESSION['Erreur2']="<div class='alert alert-success' role='alert'>
+                    $_SESSION['message']="<div class='alert alert-success' role='alert'>
                     Le produit a bien été supprimé. 
                     </div>";
                     unset($_SESSION['products'][$index]);
@@ -104,7 +104,7 @@
 
         }
         //renvoie un message d'erreur si action est lancé
-    $_SESSION['Erreur'] = "<div class='alert alert-danger' role='alert'>
+    $_SESSION['message'] = "<div class='alert alert-danger' role='alert'>
     Cette page n'existe pas 
     </div>";   
     header("Location:index.php");

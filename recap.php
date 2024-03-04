@@ -82,7 +82,8 @@
             "</table>";
             
         }
-            
+
+
             
             
             
@@ -96,18 +97,6 @@
             // envoyer le message puis le supprime ensuite 
             echo $_SESSION['message'];
             unset($_SESSION['message']);
-        }
-        //affiche le message pour supprimer un article du panier
-        if (isset($_SESSION['Erreur'])) {
-            // envoyer le message puis le supprime ensuite 
-            echo $_SESSION['Erreur'];
-            unset($_SESSION['Erreur']);
-        }
-        //affiche le message pour supprimer un article quand la quantité passe a 0
-        if (isset($_SESSION['Erreur2'])) {
-            // envoyer le message puis le supprime ensuite 
-            echo $_SESSION['Erreur2'];
-            unset($_SESSION['Erreur2']);
         }
 
 
