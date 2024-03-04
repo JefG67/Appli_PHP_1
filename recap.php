@@ -76,16 +76,16 @@
             }
             echo "<tr>",
             "<td class='p-3 mb-2 bg-primary text-white'colspan=6><strong>Total général : </strong></td>",
-            // "<td class='p-3 mb-2 bg-primary text-white'></td>",
-            // "<td class='p-3 mb-2 bg-primary text-white'></td>",
-            "<td class='p-3 mb-2 bg-success text-white'><strong>" . number_format($totalGeneral, 2, ",", "&nbsp;") . "&nbsp;€</strong></td>",
-            "<td class='p-3 mb-2 bg-primary text-white'></td>",
-            
-            
+            "<td class='p-3 mb-2 bg-success text-white'colspan=2><strong>" . number_format($totalGeneral, 2, ",", "&nbsp;") . "&nbsp;€</strong></td>",
             "</tr>",
             "</tbody>",
             "</table>";
+            
         }
+            
+            
+            
+            
         ?>
                
 
