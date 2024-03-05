@@ -82,7 +82,8 @@
                     $_SESSION['products'][$index]['total'] = $_SESSION['products'][$index]['qtt']*$_SESSION['products'][$index]['price'];
                     header("Location:recap.php");
                     exit;
-                    break;
+                    
+                    
             //action pour diminuer la quantité des produits     
             case "down-qtt":
                 $_SESSION['products'][$index]['qtt'] -=1;
@@ -92,12 +93,12 @@
                     $_SESSION['message']="<div class='alert alert-success' role='alert'>
                     Le produit a bien été supprimé. 
                     </div>";
+                    
                     unset($_SESSION['products'][$index]);
-
                 }   
                     header("Location:recap.php");
                     exit;
-                    break;
+                    
 
 
 

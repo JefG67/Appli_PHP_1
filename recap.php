@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="fr">
+<?php
+    ob_start();
+?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <title>Récapitulatif des produits</title>
-</head>
 
-<body>
+
     <div class="d-flex flex-column align-items-center  m-5">
         <h1 class="text-primary m-3 text-center ">Votre panier de produit</h1>
 
@@ -64,10 +58,10 @@
                 "<td>" . $index . "</td>",
                 "<td>" . $product['name'] . "</td>",
                 "<td>" . number_format($product['price'], 2, ",", "&nbsp;") . "&nbsp;€</td>",
-                "<td><a href='traitement.php?action=down-qtt&id=". $index."' class='btn' role='button' data-bs-toggle='button'>-</a></td>
+                "<td><a href='traitement.php?action=down-qtt&id=". $index."' class='btn'>-</a></td>
                 ",//bouton -
                 "<td>" . $product['qtt'] . "</td>",
-                "<td><a href='traitement.php?action=up-qtt&id=". $index."' class='btn' role='button' data-bs-toggle='button'>+</a></td>
+                "<td><a href='traitement.php?action=up-qtt&id=". $index."' class='btn'>+</a></td>
                 ", //bouton+ explication : id=". $index. represente l'identifiant du produit a supprimer.$index est la variable PHP qui contient cet identifiant
                 "<td>" . number_format($product['total'], 2, ",", "&nbsp;") . "&nbsp;€</td>",
                 "<td><a href='traitement.php?action=del&id=". $index."'><button type='button' class='btn-close' aria-label='Close'></button></a></td>";// bouton del produit
@@ -82,26 +76,32 @@
             "</table>";
             
         }
-
-
-            
-            
-            
         ?>
-               
-
-
-        <!-- afficher le message pour supprimer le panier  -->
+        <!-- session pour envoie des message  -->
         <?php
         if (isset($_SESSION['message'])) {
-            // envoyer le message puis le supprime ensuite 
+             
             echo $_SESSION['message'];
             unset($_SESSION['message']);
         }
-
-
-
         ?>
+<?php
+    $title = "Votre Panier";
+    $content = ob_get_clean();
+        
+    require_once "template.php"; 
+?>
+
+
+            
+            
+            
+               
+
+
+
+
+
 
         
 
