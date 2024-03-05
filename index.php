@@ -58,8 +58,7 @@ if (isset($_SESSION['message'])) {
     // envoyer le message puis le supprime ensuite 
     echo $_SESSION['message'];
     unset($_SESSION['message']);
-}
-                    
+}                   
  ?>
 <?php
     $title = "Ajouter produit";

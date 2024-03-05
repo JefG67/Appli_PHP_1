@@ -1,6 +1,5 @@
- <?php
-    session_start();
-    
+<?php session_start();?>
+<?php
     $index = isset($_GET['id']) ? $_GET['id'] : null; // on récupére la valeur d'un parametre id dans URL si elle existe sinon on lui attribue la valeur "null", (?)= operateur ternaire pour cree une condition
     
     // je verifie si une action est spécifiée dans l'url
@@ -30,18 +29,17 @@
                             $_SESSION['message'] = "<div class='alert alert-success' role='alert'>
                                 Votre produit à bien été enrengistré !
                             </div>";
-                        } elseif //je crée une condition si les données rentrer dans le formaulaire son incorect pour renvoyer un message d'erreur
-                            (isset($_POST['submit'])){ //je verifie l'existence de la clé "submit" dans le tableau $_POST, la clé correspond à l'attribut "name" du bouton input type="submit" name="submit" du formulaire.La condition sera alors vraie seulement si la requete POST transmet bien une clé "submit" au serveur
-                                
+                        } else//je crée une condition si les données rentrer dans le formaulaire son incorect pour renvoyer un message d'erreur
+                            {                                 
                                 $_SESSION['message'] = "<div class='alert alert-danger' role='alert'>
                                 Votre produit n'a pas été enregistré ! 
                                 </div>";   
 
                             }// je crée ma redirection vers la page index.php
-                            header("Location:index.php");
-                            die;
-                    
+                            
                         }
+                        header("Location:index.php");
+                        die;
                         break;
             //action vider le panier            
             case "clear":
@@ -111,6 +109,7 @@
     header("Location:index.php");
     die;
     }
+?>
    
 
 
